@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <title>emotion</title>
+</head>
+<body>
+    <canvas class="layout-dynamic" id="text" width="500" height="100"></canvas>
+    <canvas class="layout-dynamic" id="stage" width="500" height="100"></canvas>
+
+    <form class="layout-dynamic" id="form">
+        <h1>emotion</h1>
+        <input class="layout-dynamic" type="text" id="inputText" value="HELLO" />
+        <input class="layout-dynamic" type="submit" value="analyze" />
+        <div class="emoji-container">
+            <img class="emoji emoji-anger" src="assets/img/anger.svg">
+            <img class="emoji emoji-fear" src="assets/img/fear.svg">
+            <img class="emoji emoji-joy" src="assets/img/joy.svg">
+            <img class="emoji emoji-love" src="assets/img/love.svg">
+            <img class="emoji emoji-sadness" src="assets/img/sadness.svg">
+            <img class="emoji emoji-surprise" src="assets/img/surprise.svg">
+        </div>
+    </form>
+
+    <div class="layout-dynamic" id="footer">
+        <p>
+            created by <a href="https://soulteary.com" target="_blank">@soulteary</a>,
+            icon designed by <a href="https://www.iconfont.cn/collections/detail?cid=16329" target="_blank">@imkaola</a>,
+            template designed by <a href="https://codepen.io/rachsmith/details/zYxzQX" target="_blank">@rachsmith</a>
+        </p>
+    </div>
+
+
+    <script src="assets/js/EasePack.min.js"></script>
+    <script src="assets/js/TweenLite.min.js"></script>
+    <script src="assets/js/easeljs-0.7.1.min.js"></script>
+    <script src="assets/js/requestAnimationFrame.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+</html>

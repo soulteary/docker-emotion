@@ -1,0 +1,66 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #eee;
+}
+
+.layout-dynamic {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"] {
+  border: 1px solid #ddd;
+  padding: 6px;
+  font-size: 18px;
+  width: 200px;
+  text-transform: uppercase;
+  top: 30px;
+  left: 130px;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 160px;
+  border: 0;
+  line-height: 35px;
+  height: 35px;
+  color: #fff;
+  background: mediumpurple;
+  font-size: 18px;
+  top: 30px;
+  left: 350px;
+  cursor: pointer;
+}
+
+form {
+  width: 600px;
+  height: 100px;
+}
+
+.emoji-container {
+  text-align: center;
+  width: 500px;
+}
+
+.emoji {
+  width: 60px;
+  display: inline-block;
+}
+
+#footer {
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  color: #999;
+  font-size: 12px;
+}
+
+#footer a {
+  color: #333;
+}
