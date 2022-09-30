@@ -33,31 +33,4 @@ command=/app/web \n\
 '> /etc/supervisor/supervisord.conf
 
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
-
-COPY --from=WEBUI /web                                 /app/web
-
-# # extra deps for python application
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0               /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0              /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0       /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0              /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0             /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0              /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0              /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0            /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libbsd.so.0.9.1              /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.5800.3   /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5800.3      /usr/lib/x86_64-linux-gnu/
-# COPY --from=Server /lib/x86_64-linux-gnu/libdl-2.28.so                    /lib/x86_64-linux-gnu/
-# RUN ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0             /usr/lib/x86_64-linux-gnu/libGL.so.1           && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0            /usr/lib/x86_64-linux-gnu/libGLX.so.0          && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0     /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0   && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0            /usr/lib/x86_64-linux-gnu/libX11.so.6          && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0           /usr/lib/x86_64-linux-gnu/libXext.so.6         && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0            /usr/lib/x86_64-linux-gnu/libxcb.so.1          && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0            /usr/lib/x86_64-linux-gnu/libXau.so.6          && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0          /usr/lib/x86_64-linux-gnu/libXdmcp.so.6        && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libbsd.so.0.9.1            /usr/lib/x86_64-linux-gnu/libbsd.so.0          && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.5800.3 /usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0  && \
-#     ln -s /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5800.3    /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0     && \
-#     ln -s /lib/x86_64-linux-gnu/libdl-2.28.so                  /lib/x86_64-linux-gnu/libdl.so.1
+COPY --from=WEBUI /web  /app/web
