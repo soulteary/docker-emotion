@@ -4,7 +4,10 @@ from transformers import pipeline
 classifier = pipeline("text-classification", model="bhadresh-savani/bert-base-uncased-emotion", top_k=1)
 translator = pipeline("translation", model="penpen/novel-zh-en", max_time=7)
 
-def predict(text):
+def analytics(input):
+    return classifier(translate(input))[0]
+
+def translate(text):
     translation = ""
     split_text = text.splitlines()
     for text in split_text:
@@ -22,7 +25,7 @@ def predict(text):
                         sentence = translator(
                             text[i: i + 512])[0]["translation_text"]
                     translation += sentence
-    return classifier(translation)[0]
+    return translation
 
 
 with gr.Blocks() as demo:
@@ -30,9 +33,12 @@ with gr.Blocks() as demo:
     with gr.Tab("情感分析"):
         with gr.Row():
             with gr.Column(scale=1, min_width=600):
-                analytics_input = gr.Textbox(label="文本内容", lines=4, max_lines=100, placeholder="等待分析的文本内容...")
-                analytics_button = gr.Button("一窥究竟")
-                analytics_output = gr.Textbox(label="分析结果", lines=4, max_lines=100, placeholder="分析结果...")
-    analytics_button.click(predict, api_name="analytics", inputs=[analytics_input], outputs=analytics_output)
+                input = gr.Textbox(label="文本内容", lines=4, max_lines=100, placeholder="等待分析的文本内容...")
+                with gr.Row():
+                    analytics_button = gr.Button("一窥究竟")
+                    translate_button = gr.Button("翻译内容")
+                output = gr.Textbox(label="分析结果", lines=4, max_lines=100, placeholder="分析结果...")
+    analytics_button.click(analytics, api_name="analytics", inputs=[input], outputs=output)
+    translate_button.click(translate, api_name="translate", inputs=[input], outputs=output)
 
 demo.launch(debug=True, server_name="0.0.0.0")
