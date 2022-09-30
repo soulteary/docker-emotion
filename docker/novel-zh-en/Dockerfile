@@ -3,8 +3,8 @@ LABEL MAINTAINER=soulteary@gmail.com
 RUN sed -i -E "s/\w+.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
     pip3 install --upgrade pip && \
-    pip install transformers==4.22.2 && \
-    pip install torch --extra-index-url https://download.pytorch.org/whl/cpu && \
+    pip install transformers==4.22.2 sentencepiece==0.1.97 sacremoses==0.0.53 && \
+    pip install torch==1.12.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu && \
     pip cache purge
 RUN pip install pip install sentencepiece sacremoses && \
     pip cache purge
