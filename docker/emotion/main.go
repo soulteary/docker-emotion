@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"emotion/internal/config"
 	"emotion/internal/web"
+	"fmt"
 )
 
 const (
-	DEFAULT_API_URL     = "http://127.0.0.1:7860"
-	DEFAULT_PORT        = "3000"
+	DEFAULT_API_URL = "http://0.0.0.0:7860"
+	DEFAULT_PORT    = "3000"
 )
 
 func main() {

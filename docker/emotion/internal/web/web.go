@@ -37,12 +37,12 @@ func API(pythonAPI string, port string) {
 	r.StaticFS("/assets", http.FS(static))
 
 	r.GET("/show-version.js", func(c *gin.Context) {
-		version := `project <a href="https://github.com/soulteary/docker-emotion">soulteary/docker-emotion</a>, version 2022.09.30`
+		version := `project <a  target="_blank" href="https://github.com/soulteary/docker-emotion">soulteary/docker-emotion</a>, version 2022.09.30`
 		c.Data(http.StatusOK, "application/javascript; charset=utf-8", []byte(`document.getElementById('version').innerHTML = '`+version+`';`))
 		c.Abort()
 	})
 
-	r.Any("/api/*proxyPath", createProxy(pythonAPI))
+	r.Any("/proxy/*proxyPath", createProxy(pythonAPI))
 
 	r.Run(":" + port)
 }
