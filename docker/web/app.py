@@ -4,10 +4,10 @@ from transformers import pipeline
 classifier = pipeline("text-classification", model="bhadresh-savani/bert-base-uncased-emotion", top_k=1)
 translator = pipeline("translation", model="penpen/novel-zh-en", max_time=7)
 
-def analytics(input):
-    return classifier(translate(input))[0]
+def doAnalytics(input):
+    return classifier(doTranslate(input))[0]
 
-def translate(text):
+def doTranslate(text):
     translation = ""
     split_text = text.splitlines()
     for text in split_text:
@@ -38,7 +38,7 @@ with gr.Blocks() as demo:
                     analytics_button = gr.Button("一窥究竟")
                     translate_button = gr.Button("翻译内容")
                 output = gr.Textbox(label="分析结果", lines=4, max_lines=100, placeholder="分析结果...")
-    analytics_button.click(analytics, api_name="analytics", inputs=[input], outputs=output)
-    translate_button.click(translate, api_name="translate", inputs=[input], outputs=output)
+    analytics_button.click(doAnalytics, api_name="analytics", inputs=[input], outputs=output)
+    translate_button.click(doTranslate, api_name="translate", inputs=[input], outputs=output)
 
 demo.launch(debug=True, server_name="0.0.0.0")

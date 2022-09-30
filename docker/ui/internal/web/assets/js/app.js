@@ -198,6 +198,7 @@
 
   function updateStatus(status) {
     document.getElementById("status").innerHTML = "Sentiment analysis results of your input: " + status.label + ", " + (status.score * 100).toFixed(2) + "%";
+    document.getElementById("emoji-container").className = status.label;
   }
 
   function createText(t) {

@@ -4,4 +4,6 @@ docker build -t soulteary/novel-zh-en:2022.09.30 -f docker/novel-zh-en/Dockerfil
 
 docker build -t soulteary/emotion:base-2022.09.30 -f docker/web/Dockerfile.base .
 
+docker build -t soulteary/emotion:ui-2022.09.30 -f docker/ui/Dockerfile .
+
 docker build -t soulteary/emotion:2022.09.30 -f docker/web/Dockerfile .
